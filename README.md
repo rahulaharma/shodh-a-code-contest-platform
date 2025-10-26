@@ -95,6 +95,11 @@ This repository hosts both the Spring Boot backend and the React/Vite frontend f
 
 ---
 
+## Screenshots 
+![DashBoard](screeshots/dashboard.jpg)
+
+screeshots/dashboard.jpg
+
 ## Developer tips
 
 - **Test cases**: insert rows into `test_cases` with `problem_id`, `label`, `input_data`, `expected_output`, and optional `display_order`. The judge normalizes line endings and trims before comparing.
@@ -119,8 +124,7 @@ npm run lint
 
 ---
 
-## Screenshots 
-### Dashboard
+
 
 
 ## Contributing
