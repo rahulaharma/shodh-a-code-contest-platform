@@ -96,7 +96,20 @@ This repository hosts both the Spring Boot backend and the React/Vite frontend f
 ---
 
 ## Screenshots 
+### DashBoard
 ![DashBoard](screeshots/dashboard.jpg)
+
+### Login/Register
+![Login](screeshots/login.jpg)
+
+### Coding Environment
+![Environment](screeshots/environment.jpg)
+
+### Correct Solution
+![Correct_answer](screeshots/correct_submission.jpg)
+
+### Wrong Solution
+![Wrong_answer](screeshots/wrong_submission.jpg)
 
 screeshots/dashboard.jpg
 
