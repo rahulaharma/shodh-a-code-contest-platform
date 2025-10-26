@@ -119,6 +119,10 @@ npm run lint
 
 ---
 
+## Screenshots 
+### Dashboard
+
+
 ## Contributing
 
 1. Create a feature branch.
