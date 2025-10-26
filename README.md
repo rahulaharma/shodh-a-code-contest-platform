@@ -19,6 +19,11 @@ This repository hosts both the Spring Boot backend and the React/Vite frontend f
 
 ---
 
+
+## Live Demo 
+You can [download the demo video (ZIP)](demo/shodh-ai-contest-plateform-recoding.zip) and view it locally.
+
+---
 ## Tech stack
 
 | Layer      | Tools / Libraries |
