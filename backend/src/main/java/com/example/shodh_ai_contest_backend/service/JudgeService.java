@@ -64,7 +64,7 @@ public class JudgeService {
             Path codeFile = tmpDir.resolve("Main.java");
             Files.writeString(codeFile, submission.getCode());
 
-            Process compileProcess = runInSandbox(tmpDir, false, "javac Main.java");
+            Process compileProcess = runInSandbox(tmpDir,false,"javac","Main.java");
             String compileError = waitForProcess(compileProcess);
             String compileStderr = new String(compileProcess.getErrorStream().readAllBytes(), StandardCharsets.UTF_8);
 
@@ -109,7 +109,7 @@ public class JudgeService {
     }
 
     private TestCaseResultDto executeTestCase(Path workspace, TestCase testCase) throws IOException {
-        Process process = runInSandbox(workspace, true, "java Main");
+        Process process =runInSandbox(workspace, true, "java", "Main");
 
         try (OutputStream stdin = process.getOutputStream()) {
             stdin.write(testCase.getInputData().getBytes(StandardCharsets.UTF_8));
@@ -163,7 +163,7 @@ public class JudgeService {
         );
     }
 
-    private Process runInSandbox(Path workspace, boolean interactive, String command) throws IOException {
+    private Process runInSandbox(Path workspace, boolean interactive, String... command) throws IOException {
         String hostPath = workspace.toAbsolutePath().toString().replace("\\", "/");
 
         List<String> cmd = new ArrayList<>();
@@ -183,10 +183,14 @@ public class JudgeService {
         cmd.add(memory);
         cmd.add("--cpus");
         cmd.add(cpus);
+        
+        cmd.add("--entrypoint");
+        cmd.add(command[0]);
         cmd.add(image);
-        cmd.add("sh");
-        cmd.add("-c");
-        cmd.add(command);
+        for (int i = 1; i < command.length; i++) {
+            cmd.add(command[i]);
+        }
+
 
         ProcessBuilder builder = new ProcessBuilder(cmd);
         return builder.start();
